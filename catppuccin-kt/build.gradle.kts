@@ -26,7 +26,7 @@ publishing {
             artifactId = "catppuccin-kt"
 
             // Version Library Name (Example : "1.0.0")
-            version = "0.0.3"
+            version = "0.0.4"
 
             from(components["java"])
         }
