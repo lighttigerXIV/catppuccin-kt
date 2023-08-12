@@ -1,6 +1,6 @@
 package com.lighttigerxiv.catppuccin_kt
 
-enum class Label{
+enum class Label {
     LATTE_ROSEWATER,
     LATTE_FLAMINGO,
     LATTE_PINK,
@@ -108,8 +108,7 @@ enum class Label{
 }
 
 
-
-fun getCatppuccinThemes(): Catppuccin{
+fun getCatppuccinThemes(): Catppuccin {
     return Catppuccin(
         latte = getLatteColors(),
         frappe = getFrappeColors(),
@@ -161,24 +160,32 @@ data class ColorData(
     val hsl: HSL
 )
 
-data class HEX(
-    val long: Long,
-    val value: String
-)
+data class HEX(val code: String
+) {
+    fun asLong(): Long {
+        return java.lang.Long.decode(code.replace("#", "#ff"))
+    }
+}
 
 data class RGB(
     val r: Int,
     val g: Int,
-    val b: Int,
-    val value: String
-)
+    val b: Int
+){
+    fun asString(): String{
+        return "rgb($r, $g, $b)"
+    }
+}
 
 data class HSL(
     val h: Int,
     val s: Int,
     val l: Int,
-    val value: String
-)
+){
+    fun asString(): String{
+        return "rgb($h, $s%, $l%)"
+    }
+}
 
 
 fun getLatteColors(): CatppuccinTheme {
@@ -186,495 +193,416 @@ fun getLatteColors(): CatppuccinTheme {
         rosewater = ColorData(
             name = "Rosewater",
             hex = HEX(
-                long = 0xffdc8a78,
-                value = "#dc8a78"
+                code = "#dc8a78"
             ),
             rgb = RGB(
                 r = 220,
                 g = 138,
                 b = 120,
-                value = "rgb(220, 138, 120)"
             ),
             hsl = HSL(
                 h = 11,
                 s = 59,
                 l = 67,
-                value = "hsl(11, 59%, 67%)"
             )
         ),
         flamingo = ColorData(
             name = "Flamingo",
             hex = HEX(
-                long = 0xffdd7878,
-                value = "#dd7878"
+                code = "#dd7878"
             ),
             rgb = RGB(
                 r = 221,
                 g = 120,
                 b = 120,
-                value = "rgb(221, 120, 120)"
             ),
             hsl = HSL(
                 h = 0,
                 s = 60,
                 l = 67,
-                value = "hsl(0, 60%, 67%)"
             )
         ),
         pink = ColorData(
             name = "Pink",
             hex = HEX(
-                long = 0xffea76cb,
-                value = "#ea76cb"
+                code = "#ea76cb"
             ),
             rgb = RGB(
                 r = 234,
                 g = 118,
                 b = 203,
-                value = "rgb(234, 118, 203)"
             ),
             hsl = HSL(
                 h = 316,
                 s = 73,
                 l = 69,
-                value = "hsl(316, 73%, 69%)"
             )
         ),
         mauve = ColorData(
             name = "Mauve",
             hex = HEX(
-                long = 0xff8839ef,
-                value = "#8839ef"
+                code = "#8839ef"
             ),
             rgb = RGB(
                 r = 136,
                 g = 57,
                 b = 239,
-                value = "rgb(136, 57, 239)"
             ),
             hsl = HSL(
                 h = 266,
                 s = 85,
                 l = 58,
-                value = "hsl(266, 85%, 58%)"
             )
         ),
         red = ColorData(
             name = "Red",
             hex = HEX(
-                long = 0xffd20f39,
-                value = "#d20f39"
+                code = "#d20f39"
             ),
             rgb = RGB(
                 r = 210,
                 g = 15,
                 b = 57,
-                value = "rgb(210, 15, 57)"
             ),
             hsl = HSL(
                 h = 347,
                 s = 87,
                 l = 44,
-                value = "hsl(347, 87%, 44%)"
             )
         ),
         maroon = ColorData(
             name = "Maroon",
             hex = HEX(
-                long = 0xffe64553,
-                value = "#e64553"
+                code = "#e64553"
             ),
             rgb = RGB(
                 r = 230,
                 g = 69,
                 b = 83,
-                value = "rgb(230, 69, 83)"
             ),
             hsl = HSL(
                 h = 355,
                 s = 76,
                 l = 59,
-                value = "hsl(355, 76%, 59%)"
             )
         ),
         peach = ColorData(
             name = "Peach",
             hex = HEX(
-                long = 0xfffe640b,
-                value = "#fe640b"
+                code = "#fe640b"
             ),
             rgb = RGB(
                 r = 254,
                 g = 100,
                 b = 11,
-                value = "rgb(254, 100, 11)"
             ),
             hsl = HSL(
                 h = 22,
                 s = 99,
                 l = 52,
-                value = "hsl(22, 99%, 52%)"
             )
         ),
         yellow = ColorData(
             name = "Yellow",
             hex = HEX(
-                long = 0xffdf8e1d,
-                value = "#df8e1d"
+                code = "#df8e1d"
             ),
             rgb = RGB(
                 r = 223,
                 g = 142,
                 b = 29,
-                value = "rgb(223, 142, 29)"
             ),
             hsl = HSL(
                 h = 35,
                 s = 77,
                 l = 49,
-                value = "hsl(35, 77%, 49%)"
             )
         ),
         green = ColorData(
             name = "Green",
             hex = HEX(
-                long = 0xff40a02b,
-                value = "#40a02b"
+                code = "#40a02b"
             ),
             rgb = RGB(
                 r = 64,
                 g = 160,
                 b = 43,
-                value = "rgb(64, 160, 43)"
             ),
             hsl = HSL(
                 h = 109,
                 s = 58,
                 l = 40,
-                value = "hsl(109, 58%, 40%)"
             )
         ),
         teal = ColorData(
             name = "Teal",
             hex = HEX(
-                long = 0xff179299,
-                value = "#179299"
+                code = "#179299"
             ),
             rgb = RGB(
                 r = 23,
                 g = 146,
                 b = 153,
-                value = "rgb(23, 146, 153)"
             ),
             hsl = HSL(
                 h = 183,
                 s = 74,
                 l = 35,
-                value = "hsl(183, 74%, 35%)"
             )
         ),
         sky = ColorData(
             name = "Sky",
             hex = HEX(
-                long = 0xff04a5e5,
-                value = "#04a5e5"
+                code = "#04a5e5"
             ),
             rgb = RGB(
                 r = 4,
                 g = 165,
                 b = 229,
-                value = "rgb(4, 165, 229)"
             ),
             hsl = HSL(
                 h = 197,
                 s = 97,
                 l = 46,
-                value = "hsl(197, 97%, 46%)"
             )
         ),
         sapphire = ColorData(
             name = "Sapphire",
             hex = HEX(
-                long = 0xff209fb5,
-                value = "#209fb5"
+                code = "#209fb5"
             ),
             rgb = RGB(
                 r = 32,
                 g = 159,
                 b = 181,
-                value = "rgb(32, 159, 181)"
             ),
             hsl = HSL(
                 h = 189,
                 s = 70,
                 l = 42,
-                value = "hsl(189, 70%, 42%)"
             )
         ),
         blue = ColorData(
             name = "Blue",
             hex = HEX(
-                long = 0xff1e66f5,
-                value = "#1e66f5"
+                code = "#1e66f5"
             ),
             rgb = RGB(
                 r = 30,
                 g = 102,
                 b = 245,
-                value = "rgb(30, 102, 245)"
             ),
             hsl = HSL(
                 h = 220,
                 s = 91,
                 l = 54,
-                value = "hsl(220, 91%, 54%)"
             )
         ),
         lavender = ColorData(
             name = "Lavender",
             hex = HEX(
-                long = 0xff7287fd,
-                value = "#7287fd"
+                code = "#7287fd"
             ),
             rgb = RGB(
                 r = 114,
                 g = 135,
                 b = 253,
-                value = "rgb(114, 135, 253)"
             ),
             hsl = HSL(
                 h = 231,
                 s = 97,
                 l = 72,
-                value = "hsl(231, 97%, 72%)"
             )
         ),
         text = ColorData(
             name = "Text",
             hex = HEX(
-                long = 0xff4c4f69,
-                value = "#4c4f69"
+                code = "#4c4f69"
             ),
             rgb = RGB(
                 r = 76,
                 g = 79,
                 b = 105,
-                value = "rgb(76, 79, 105)"
             ),
             hsl = HSL(
                 h = 234,
                 s = 16,
                 l = 35,
-                value = "hsl(234, 16%, 35%)"
             )
         ),
         subtext1 = ColorData(
             name = "SubText1",
             hex = HEX(
-                long = 0xff5c5f77,
-                value = "#5c5f77"
+                code = "#5c5f77"
             ),
             rgb = RGB(
                 r = 92,
                 g = 95,
                 b = 119,
-                value = "rgb(92, 95, 119)"
             ),
             hsl = HSL(
                 h = 233,
                 s = 13,
                 l = 41,
-                value = "hsl(233, 13%, 41%)"
             )
         ),
         subtext0 = ColorData(
             name = "SubText0",
             hex = HEX(
-                long = 0xff6c6f85,
-                value = "#6c6f85"
+                code = "#6c6f85"
             ),
             rgb = RGB(
                 r = 108,
                 g = 111,
                 b = 133,
-                value = "rgb(108, 111, 133)"
             ),
             hsl = HSL(
                 h = 233,
                 s = 10,
                 l = 47,
-                value = "hsl(233, 10%, 47%)"
             )
         ),
         overlay2 = ColorData(
             name = "Overlay2",
             hex = HEX(
-                long = 0xff7c7f93,
-                value = "#7c7f93"
+                code = "#7c7f93"
             ),
             rgb = RGB(
                 r = 124,
                 g = 127,
                 b = 147,
-                value = "rgb(124, 127, 147)"
             ),
             hsl = HSL(
                 h = 232,
                 s = 10,
                 l = 53,
-                value = "hsl(232, 10%, 53%)"
             )
         ),
         overlay1 = ColorData(
             name = "Overlay1",
             hex = HEX(
-                long = 0xff8c8fa1,
-                value = "#8c8fa1"
+                code = "#8c8fa1"
             ),
             rgb = RGB(
                 r = 140,
                 g = 143,
                 b = 161,
-                value = "rgb(140, 143, 161)"
             ),
             hsl = HSL(
                 h = 231,
                 s = 10,
                 l = 59,
-                value = "hsl(231, 10%, 59%)"
             )
         ),
         overlay0 = ColorData(
             name = "Overlay0",
             hex = HEX(
-                long = 0xff9ca0b0,
-                value = "#9ca0b0"
+                code = "#9ca0b0"
             ),
             rgb = RGB(
                 r = 156,
                 g = 160,
                 b = 176,
-                value = "rgb(156, 160, 176)"
             ),
             hsl = HSL(
                 h = 228,
                 s = 11,
                 l = 65,
-                value = "hsl(228, 11%, 65%)"
             )
         ),
         surface2 = ColorData(
             name = "Surface2",
             hex = HEX(
-                long = 0xffacb0be,
-                value = "#acb0be"
+                code = "#acb0be"
             ),
             rgb = RGB(
                 r = 172,
                 g = 176,
                 b = 190,
-                value = "rgb(172, 176, 190)"
             ),
             hsl = HSL(
                 h = 227,
                 s = 12,
                 l = 71,
-                value = "hsl(227, 12%, 71%)"
             )
         ),
         surface1 = ColorData(
             name = "Surface1",
             hex = HEX(
-                long = 0xffbcc0cc,
-                value = "#bcc0cc"
+                code = "#bcc0cc"
             ),
             rgb = RGB(
                 r = 188,
                 g = 192,
                 b = 204,
-                value = "rgb(188, 192, 204)"
             ),
             hsl = HSL(
                 h = 225,
                 s = 14,
                 l = 77,
-                value = "hsl(225, 14%, 77%)"
             )
         ),
         surface0 = ColorData(
             name = "Surface0",
             hex = HEX(
-                long = 0xffccd0da,
-                value = "#ccd0da"
+                code = "#ccd0da"
             ),
             rgb = RGB(
                 r = 204,
                 g = 208,
                 b = 218,
-                value = "rgb(204, 208, 218)"
             ),
             hsl = HSL(
                 h = 223,
                 s = 16,
                 l = 83,
-                value = "hsl(223, 16%, 83%)"
             )
         ),
         base = ColorData(
             name = "Base",
-            hex = HEX(
-                long = 0xeff1f5,
-                value = "#eff1f5"
+            hex = HEX(code = "#eff1f5"
             ),
             rgb = RGB(
                 r = 239,
                 g = 241,
                 b = 245,
-                value = "rgb(239, 241, 245)"
             ),
             hsl = HSL(
                 h = 220,
                 s = 23,
                 l = 95,
-                value = "hsl(220, 23%, 95%)"
             )
         ),
         mantle = ColorData(
             name = "Mantle",
             hex = HEX(
-                long = 0xffe6e9ef,
-                value = "#e6e9ef"
+                code = "#e6e9ef"
             ),
             rgb = RGB(
                 r = 230,
                 g = 233,
                 b = 239,
-                value = "rgb(230, 233, 239)"
             ),
             hsl = HSL(
                 h = 220,
                 s = 22,
                 l = 92,
-                value = "hsl(220, 22%, 92%)"
             )
         ),
         crust = ColorData(
             name = "Crust",
             hex = HEX(
-                long = 0xffdce0e8,
-                value = "#dce0e8"
+                code = "#dce0e8"
             ),
             rgb = RGB(
                 r = 220,
                 g = 224,
                 b = 232,
-                value = "rgb(220, 224, 232)"
             ),
             hsl = HSL(
                 h = 220,
                 s = 21,
                 l = 89,
-                value = "hsl(220, 21%, 89%)"
             )
         )
     )
@@ -685,495 +613,417 @@ fun getFrappeColors(): CatppuccinTheme {
         rosewater = ColorData(
             name = "Rosewater",
             hex = HEX(
-                long = 0xfff2d5cf,
-                value = "#f2d5cf"
+                code = "#f2d5cf"
             ),
             rgb = RGB(
                 r = 242,
                 g = 213,
                 b = 207,
-                value = "rgb(242, 213, 207)"
             ),
             hsl = HSL(
                 h = 10,
                 s = 57,
                 l = 88,
-                value = "hsl(10, 57%, 88%)"
             )
         ),
         flamingo = ColorData(
             name = "Flamingo",
             hex = HEX(
-                long = 0xffeebebe,
-                value = "#eebebe"
+                code = "#eebebe"
             ),
             rgb = RGB(
                 r = 238,
                 g = 190,
                 b = 190,
-                value = "rgb(238, 190, 190)"
             ),
             hsl = HSL(
                 h = 0,
                 s = 59,
                 l = 84,
-                value = "hsl(0, 59%, 84%)"
             )
         ),
         pink = ColorData(
             name = "Pink",
             hex = HEX(
-                long = 0xfff4b8e4,
-                value = "#f4b8e4"
+                code = "#f4b8e4"
             ),
             rgb = RGB(
                 r = 244,
                 g = 184,
                 b = 228,
-                value = "rgb(244, 184, 228)"
             ),
             hsl = HSL(
                 h = 316,
                 s = 73,
                 l = 84,
-                value = "hsl(316, 73%, 84%)"
             )
         ),
         mauve = ColorData(
             name = "Mauve",
             hex = HEX(
-                long = 0xffca9ee6,
-                value = "#ca9ee6"
+                code = "#ca9ee6"
             ),
             rgb = RGB(
                 r = 202,
                 g = 158,
                 b = 230,
-                value = "rgb(202, 158, 230)"
             ),
             hsl = HSL(
                 h = 277,
                 s = 59,
                 l = 76,
-                value = "hsl(277, 59%, 76%)"
             )
         ),
         red = ColorData(
             name = "Red",
             hex = HEX(
-                long = 0xffe78284,
-                value = "#e78284"
+                code = "#e78284"
             ),
             rgb = RGB(
                 r = 231,
                 g = 130,
                 b = 132,
-                value = "rgb(231, 130, 132)"
             ),
             hsl = HSL(
                 h = 359,
                 s = 68,
                 l = 71,
-                value = "hsl(359, 68%, 71%)"
             )
         ),
         maroon = ColorData(
             name = "Maroon",
             hex = HEX(
-                long = 0xffea999c,
-                value = "#ea999c"
+                code = "#ea999c"
             ),
             rgb = RGB(
                 r = 234,
                 g = 153,
                 b = 156,
-                value = "rgb(234, 153, 156)"
             ),
             hsl = HSL(
                 h = 358,
                 s = 66,
                 l = 76,
-                value = "hsl(358, 66%, 76%)"
             )
         ),
         peach = ColorData(
             name = "Peach",
             hex = HEX(
-                long = 0xffef9f76,
-                value = "#ef9f76"
+                code = "#ef9f76"
             ),
             rgb = RGB(
                 r = 239,
                 g = 159,
                 b = 118,
-                value = "rgb(239, 159, 118)"
             ),
             hsl = HSL(
                 h = 20,
                 s = 79,
                 l = 70,
-                value = "hsl(20, 79%, 70%)"
             )
         ),
         yellow = ColorData(
             name = "Yellow",
             hex = HEX(
-                long = 0xffe5c890,
-                value = "#e5c890"
+                code = "#e5c890"
             ),
             rgb = RGB(
                 r = 229,
                 g = 200,
                 b = 144,
-                value = "rgb(229, 200, 144)"
             ),
             hsl = HSL(
                 h = 40,
                 s = 62,
                 l = 73,
-                value = "hsl(40, 62%, 73%)"
             )
         ),
         green = ColorData(
             name = "Green",
             hex = HEX(
-                long = 0xffa6d189,
-                value = "#a6d189"
+                code = "#a6d189"
             ),
             rgb = RGB(
                 r = 166,
                 g = 209,
                 b = 137,
-                value = "rgb(166, 209, 137)"
             ),
             hsl = HSL(
                 h = 96,
                 s = 44,
                 l = 68,
-                value = "hsl(96, 44%, 68%)"
             )
         ),
         teal = ColorData(
             name = "Teal",
             hex = HEX(
-                long = 0xff81c8be,
-                value = "#81c8be"
+                code = "#81c8be"
             ),
             rgb = RGB(
                 r = 129,
                 g = 200,
                 b = 190,
-                value = "rgb(129, 200, 190)"
             ),
             hsl = HSL(
                 h = 172,
                 s = 39,
                 l = 65,
-                value = "hsl(172, 39%, 65%)"
             )
         ),
         sky = ColorData(
             name = "Sky",
             hex = HEX(
-                long = 0xff99d1db,
-                value = "#99d1db"
+                code = "#99d1db"
             ),
             rgb = RGB(
                 r = 153,
                 g = 209,
                 b = 219,
-                value = "rgb(153, 209, 219)"
             ),
             hsl = HSL(
                 h = 189,
                 s = 48,
                 l = 73,
-                value = "hsl(189, 48%, 73%)"
             )
         ),
         sapphire = ColorData(
             name = "Sapphire",
             hex = HEX(
-                long = 0xff85c1dc,
-                value = "#85c1dc"
+                code = "#85c1dc"
             ),
             rgb = RGB(
                 r = 133,
                 g = 193,
                 b = 220,
-                value = "rgb(133, 193, 220)"
             ),
             hsl = HSL(
                 h = 199,
                 s = 55,
                 l = 69,
-                value = "hsl(199, 55%, 69%)"
             )
         ),
         blue = ColorData(
             name = "Blue",
             hex = HEX(
-                long = 0xff8caaee,
-                value = "#8caaee"
+                code = "#8caaee"
             ),
             rgb = RGB(
                 r = 140,
                 g = 170,
                 b = 238,
-                value = "rgb(140, 170, 238)"
             ),
             hsl = HSL(
                 h = 222,
                 s = 74,
                 l = 74,
-                value = "hsl(222, 74%, 74%)"
             )
         ),
         lavender = ColorData(
             name = "Lavender",
             hex = HEX(
-                long = 0xffbabbf1,
-                value = "#babbf1"
+                code = "#babbf1"
             ),
             rgb = RGB(
                 r = 186,
                 g = 187,
                 b = 241,
-                value = "rgb(186, 187, 241)"
             ),
             hsl = HSL(
                 h = 239,
                 s = 66,
                 l = 84,
-                value = "hsl(239, 66%, 84%)"
             )
         ),
         text = ColorData(
             name = "Text",
             hex = HEX(
-                long = 0xffc6d0f5,
-                value = "#c6d0f5"
+                code = "#c6d0f5"
             ),
             rgb = RGB(
                 r = 198,
                 g = 208,
                 b = 245,
-                value = "rgb(198, 208, 245)"
             ),
             hsl = HSL(
                 h = 227,
                 s = 70,
                 l = 87,
-                value = "hsl(227, 70%, 87%)"
             )
         ),
         subtext1 = ColorData(
             name = "SubText1",
             hex = HEX(
-                long = 0xffb5bfe2,
-                value = "#b5bfe2"
+                code = "#b5bfe2"
             ),
             rgb = RGB(
                 r = 181,
                 g = 191,
                 b = 226,
-                value = "rgb(181, 191, 226)"
             ),
             hsl = HSL(
                 h = 227,
                 s = 44,
                 l = 80,
-                value = "hsl(227, 44%, 80%)"
             )
         ),
         subtext0 = ColorData(
             name = "SubText0",
             hex = HEX(
-                long = 0xffa5adce,
-                value = "#a5adce"
+                code = "#a5adce"
             ),
             rgb = RGB(
                 r = 165,
                 g = 173,
                 b = 206,
-                value = "rgb(165, 173, 206)"
             ),
             hsl = HSL(
                 h = 228,
                 s = 29,
                 l = 73,
-                value = "hsl(228, 29%, 73%)"
             )
         ),
         overlay2 = ColorData(
             name = "Overlay2",
             hex = HEX(
-                long = 0xff949cbb,
-                value = "#949cbb"
+                code = "#949cbb"
             ),
             rgb = RGB(
                 r = 148,
                 g = 156,
                 b = 187,
-                value = "rgb(148, 156, 187)"
             ),
             hsl = HSL(
                 h = 228,
                 s = 22,
                 l = 66,
-                value = "hsl(228, 22%, 66%)"
             )
         ),
         overlay1 = ColorData(
             name = "Overlay1",
             hex = HEX(
-                long = 0xff838ba7,
-                value = "#838ba7"
+                code = "#838ba7"
             ),
             rgb = RGB(
                 r = 131,
                 g = 139,
                 b = 167,
-                value = "rgb(131, 139, 167)"
             ),
             hsl = HSL(
                 h = 227,
                 s = 17,
                 l = 58,
-                value = "hsl(227, 17%, 58%)"
             )
         ),
         overlay0 = ColorData(
             name = "Overlay0",
             hex = HEX(
-                long = 0xff737994,
-                value = "#737994"
+                code = "#737994"
             ),
             rgb = RGB(
                 r = 115,
                 g = 121,
                 b = 148,
-                value = "rgb(115, 121, 148)"
             ),
             hsl = HSL(
                 h = 229,
                 s = 13,
                 l = 52,
-                value = "hsl(229, 13%, 52%)"
             )
         ),
         surface2 = ColorData(
             name = "Surface2",
             hex = HEX(
-                long = 0xff626880,
-                value = "#626880"
+                code = "#626880"
             ),
             rgb = RGB(
                 r = 98,
                 g = 104,
                 b = 128,
-                value = "rgb(98, 104, 128)"
             ),
             hsl = HSL(
                 h = 228,
                 s = 13,
                 l = 44,
-                value = "hsl(228, 13%, 44%)"
             )
         ),
         surface1 = ColorData(
             name = "Surface1",
             hex = HEX(
-                long = 0xff51576d,
-                value = "#51576d"
+                code = "#51576d"
             ),
             rgb = RGB(
                 r = 81,
                 g = 87,
                 b = 109,
-                value = "rgb(81, 87, 109)"
             ),
             hsl = HSL(
                 h = 227,
                 s = 15,
                 l = 37,
-                value = "hsl(227, 15%, 37%)"
             )
         ),
         surface0 = ColorData(
             name = "Surface0",
             hex = HEX(
-                long = 0xff414559,
-                value = "#414559"
+                code = "#414559"
             ),
             rgb = RGB(
                 r = 65,
                 g = 69,
                 b = 89,
-                value = "rgb(65, 69, 89)"
             ),
             hsl = HSL(
                 h = 230,
                 s = 16,
                 l = 30,
-                value = "hsl(230, 16%, 30%)"
             )
         ),
         base = ColorData(
             name = "Base",
             hex = HEX(
-                long = 0xff303446,
-                value = "#303446"
+                code = "#303446"
             ),
             rgb = RGB(
                 r = 48,
                 g = 52,
                 b = 70,
-                value = "rgb(48, 52, 70)"
             ),
             hsl = HSL(
                 h = 229,
                 s = 19,
                 l = 23,
-                value = "hsl(229, 19%, 23%)"
             )
         ),
         mantle = ColorData(
             name = "Mantle",
             hex = HEX(
-                long = 0xff292c3c,
-                value = "#292c3c"
+                code = "#292c3c"
             ),
             rgb = RGB(
                 r = 41,
                 g = 44,
                 b = 60,
-                value = "rgb(41, 44, 60)"
             ),
             hsl = HSL(
                 h = 231,
                 s = 19,
                 l = 20,
-                value = "hsl(231, 19%, 20%)"
             )
         ),
         crust = ColorData(
             name = "Crust",
             hex = HEX(
-                long = 0xff232634,
-                value = "#232634"
+                code = "#232634"
             ),
             rgb = RGB(
                 r = 35,
                 g = 38,
                 b = 52,
-                value = "rgb(35, 38, 52)"
             ),
             hsl = HSL(
                 h = 229,
                 s = 20,
                 l = 17,
-                value = "hsl(229, 20%, 17%)"
             )
         )
     )
@@ -1184,495 +1034,417 @@ fun getMacchiatoColors(): CatppuccinTheme {
         rosewater = ColorData(
             name = "Rosewater",
             hex = HEX(
-                long = 0xfff4dbd6,
-                value = "#f4dbd6"
+                code = "#f4dbd6"
             ),
             rgb = RGB(
                 r = 244,
                 g = 219,
                 b = 214,
-                value = "rgb(244, 219, 214)"
             ),
             hsl = HSL(
                 h = 10,
                 s = 58,
                 l = 90,
-                value = "hsl(10, 58%, 90%)"
             )
         ),
         flamingo = ColorData(
             name = "Flamingo",
             hex = HEX(
-                long = 0xfff0c6c6,
-                value = "#f0c6c6"
+                code = "#f0c6c6"
             ),
             rgb = RGB(
                 r = 240,
                 g = 198,
                 b = 198,
-                value = "rgb(240, 198, 198)"
             ),
             hsl = HSL(
                 h = 0,
                 s = 58,
                 l = 86,
-                value = "hsl(0, 58%, 86%)"
             )
         ),
         pink = ColorData(
             name = "Pink",
             hex = HEX(
-                long = 0xfff5bde6,
-                value = "#f5bde6"
+                code = "#f5bde6"
             ),
             rgb = RGB(
                 r = 245,
                 g = 189,
                 b = 230,
-                value = "rgb(245, 189, 230)"
             ),
             hsl = HSL(
                 h = 316,
                 s = 74,
                 l = 85,
-                value = "hsl(316, 74%, 85%)"
             )
         ),
         mauve = ColorData(
             name = "Mauve",
             hex = HEX(
-                long = 0xffc6a0f6,
-                value = "#c6a0f6"
+                code = "#c6a0f6"
             ),
             rgb = RGB(
                 r = 198,
                 g = 160,
                 b = 246,
-                value = "rgb(198, 160, 246)"
             ),
             hsl = HSL(
                 h = 267,
                 s = 83,
                 l = 80,
-                value = "hsl(267, 83%, 80%)"
             )
         ),
         red = ColorData(
             name = "Red",
             hex = HEX(
-                long = 0xffed8796,
-                value = "#ed8796"
+                code = "#ed8796"
             ),
             rgb = RGB(
                 r = 237,
                 g = 135,
                 b = 150,
-                value = "rgb(237, 135, 150)"
             ),
             hsl = HSL(
                 h = 351,
                 s = 74,
                 l = 73,
-                value = "hsl(351, 74%, 73%)"
             )
         ),
         maroon = ColorData(
             name = "Maroon",
             hex = HEX(
-                long = 0xffee99a0,
-                value = "#ee99a0"
+                code = "#ee99a0"
             ),
             rgb = RGB(
                 r = 238,
                 g = 153,
                 b = 160,
-                value = "rgb(238, 153, 160)"
             ),
             hsl = HSL(
                 h = 355,
                 s = 71,
                 l = 77,
-                value = "hsl(355, 71%, 77%)"
             )
         ),
         peach = ColorData(
             name = "Peach",
             hex = HEX(
-                long = 0xfff5a97f,
-                value = "#f5a97f"
+                code = "#f5a97f"
             ),
             rgb = RGB(
                 r = 245,
                 g = 169,
                 b = 127,
-                value = "rgb(245, 169, 127)"
             ),
             hsl = HSL(
                 h = 21,
                 s = 86,
                 l = 73,
-                value = "hsl(21, 86%, 73%)"
             )
         ),
         yellow = ColorData(
             name = "Yellow",
             hex = HEX(
-                long = 0xffeed49f,
-                value = "#eed49f"
+                code = "#eed49f"
             ),
             rgb = RGB(
                 r = 238,
                 g = 212,
                 b = 159,
-                value = "rgb(238, 212, 159)"
             ),
             hsl = HSL(
                 h = 40,
                 s = 70,
                 l = 78,
-                value = "hsl(40, 70%, 78%)"
             )
         ),
         green = ColorData(
             name = "Green",
             hex = HEX(
-                long = 0xffa6da95,
-                value = "#a6da95"
+                code = "#a6da95"
             ),
             rgb = RGB(
                 r = 166,
                 g = 218,
                 b = 149,
-                value = "rgb(166, 218, 149)"
             ),
             hsl = HSL(
                 h = 105,
                 s = 48,
                 l = 72,
-                value = "hsl(105, 48%, 72%)"
             )
         ),
         teal = ColorData(
             name = "Teal",
             hex = HEX(
-                long = 0xff8bd5ca,
-                value = "#8bd5ca"
+                code = "#8bd5ca"
             ),
             rgb = RGB(
                 r = 139,
                 g = 213,
                 b = 202,
-                value = "rgb(139, 213, 202)"
             ),
             hsl = HSL(
                 h = 171,
                 s = 47,
                 l = 69,
-                value = "hsl(171, 47%, 69%)"
             )
         ),
         sky = ColorData(
             name = "Sky",
             hex = HEX(
-                long = 0xff91d7e3,
-                value = "#91d7e3"
+                code = "#91d7e3"
             ),
             rgb = RGB(
                 r = 145,
                 g = 215,
                 b = 227,
-                value = "rgb(145, 215, 227)"
             ),
             hsl = HSL(
                 h = 189,
                 s = 59,
                 l = 73,
-                value = "hsl(189, 59%, 73%)"
             )
         ),
         sapphire = ColorData(
             name = "Sapphire",
             hex = HEX(
-                long = 0xff7dc4e4,
-                value = "#7dc4e4"
+                code = "#7dc4e4"
             ),
             rgb = RGB(
                 r = 125,
                 g = 196,
                 b = 228,
-                value = "rgb(125, 196, 228)"
             ),
             hsl = HSL(
                 h = 199,
                 s = 66,
                 l = 69,
-                value = "hsl(199, 66%, 69%)"
             )
         ),
         blue = ColorData(
             name = "Blue",
             hex = HEX(
-                long = 0xff8aadf4,
-                value = "#8aadf4"
+                code = "#8aadf4"
             ),
             rgb = RGB(
                 r = 138,
                 g = 173,
                 b = 244,
-                value = "rgb(138, 173, 244)"
             ),
             hsl = HSL(
                 h = 220,
                 s = 83,
                 l = 75,
-                value = "hsl(220, 83%, 75%)"
             )
         ),
         lavender = ColorData(
             name = "Lavender",
             hex = HEX(
-                long = 0xffb7bdf8,
-                value = "#b7bdf8"
+                code = "#b7bdf8"
             ),
             rgb = RGB(
                 r = 183,
                 g = 189,
                 b = 248,
-                value = "rgb(183, 189, 248)"
             ),
             hsl = HSL(
                 h = 234,
                 s = 82,
                 l = 85,
-                value = "hsl(234, 82%, 85%)"
             )
         ),
         text = ColorData(
             name = "Text",
             hex = HEX(
-                long = 0xffcad3f5,
-                value = "#cad3f5"
+                code = "#cad3f5"
             ),
             rgb = RGB(
                 r = 202,
                 g = 211,
                 b = 245,
-                value = "rgb(202, 211, 245)"
             ),
             hsl = HSL(
                 h = 227,
                 s = 68,
                 l = 88,
-                value = "hsl(227, 68%, 88%)"
             )
         ),
         subtext1 = ColorData(
             name = "SubText1",
             hex = HEX(
-                long = 0xffb8c0e0,
-                value = "#b8c0e0"
+                code = "#b8c0e0"
             ),
             rgb = RGB(
                 r = 184,
                 g = 192,
                 b = 224,
-                value = "rgb(184, 192, 224)"
             ),
             hsl = HSL(
                 h = 228,
                 s = 39,
                 l = 80,
-                value = "hsl(228, 39%, 80%)"
             )
         ),
         subtext0 = ColorData(
             name = "SubText0",
             hex = HEX(
-                long = 0xffa5adcb,
-                value = "#a5adcb"
+                code = "#a5adcb"
             ),
             rgb = RGB(
                 r = 165,
                 g = 173,
                 b = 203,
-                value = "rgb(165, 173, 203)"
             ),
             hsl = HSL(
                 h = 227,
                 s = 27,
                 l = 72,
-                value = "hsl(227, 27%, 72%)"
             )
         ),
         overlay2 = ColorData(
             name = "Overlay2",
             hex = HEX(
-                long = 0xff939ab7,
-                value = "#939ab7"
+                code = "#939ab7"
             ),
             rgb = RGB(
                 r = 147,
                 g = 154,
                 b = 183,
-                value = "rgb(147, 154, 183)"
             ),
             hsl = HSL(
                 h = 228,
                 s = 20,
                 l = 65,
-                value = "hsl(228, 20%, 65%)"
             )
         ),
         overlay1 = ColorData(
             name = "Overlay1",
             hex = HEX(
-                long = 0xff8087a2,
-                value = "#8087a2"
+                code = "#8087a2"
             ),
             rgb = RGB(
                 r = 128,
                 g = 135,
                 b = 162,
-                value = "rgb(128, 135, 162)"
             ),
             hsl = HSL(
                 h = 228,
                 s = 15,
                 l = 57,
-                value = "hsl(228, 15%, 57%)"
             )
         ),
         overlay0 = ColorData(
             name = "Overlay0",
             hex = HEX(
-                long = 0xff6e738d,
-                value = "#6e738d"
+                code = "#6e738d"
             ),
             rgb = RGB(
                 r = 110,
                 g = 115,
                 b = 141,
-                value = "rgb(110, 115, 141)"
             ),
             hsl = HSL(
                 h = 230,
                 s = 12,
                 l = 49,
-                value = "hsl(230, 12%, 49%)"
             )
         ),
         surface2 = ColorData(
             name = "Surface2",
             hex = HEX(
-                long = 0xff5b6078,
-                value = "#5b6078"
+                code = "#5b6078"
             ),
             rgb = RGB(
                 r = 91,
                 g = 96,
                 b = 120,
-                value = "rgb(91, 96, 120)"
             ),
             hsl = HSL(
                 h = 230,
                 s = 14,
                 l = 41,
-                value = "hsl(230, 14%, 41%)"
             )
         ),
         surface1 = ColorData(
             name = "Surface1",
             hex = HEX(
-                long = 0xff494d64,
-                value = "#494d64"
+                code = "#494d64"
             ),
             rgb = RGB(
                 r = 73,
                 g = 77,
                 b = 100,
-                value = "rgb(73, 77, 100)"
             ),
             hsl = HSL(
                 h = 231,
                 s = 16,
                 l = 34,
-                value = "hsl(231, 16%, 34%)"
             )
         ),
         surface0 = ColorData(
             name = "Surface0",
             hex = HEX(
-                long = 0xff363a4f,
-                value = "#363a4f"
+                code = "#363a4f"
             ),
             rgb = RGB(
                 r = 54,
                 g = 58,
                 b = 79,
-                value = "rgb(54, 58, 79)"
             ),
             hsl = HSL(
                 h = 230,
                 s = 19,
                 l = 26,
-                value = "hsl(230, 19%, 26%)"
             )
         ),
         base = ColorData(
             name = "Base",
             hex = HEX(
-                long = 0xff24273a,
-                value = "#24273a"
+                code = "#24273a"
             ),
             rgb = RGB(
                 r = 36,
                 g = 39,
                 b = 58,
-                value = "rgb(36, 39, 58)"
             ),
             hsl = HSL(
                 h = 232,
                 s = 23,
                 l = 18,
-                value = "hsl(232, 23%, 18%)"
             )
         ),
         mantle = ColorData(
             name = "Mantle",
             hex = HEX(
-                long = 0xff1e2030,
-                value = "#1e2030"
+                code = "#1e2030"
             ),
             rgb = RGB(
                 r = 30,
                 g = 32,
                 b = 48,
-                value = "rgb(30, 32, 48)"
             ),
             hsl = HSL(
                 h = 233,
                 s = 23,
                 l = 15,
-                value = "hsl(233, 23%, 15%)"
             )
         ),
         crust = ColorData(
             name = "Crust",
             hex = HEX(
-                long = 0xff181926,
-                value = "#181926"
+                code = "#181926"
             ),
             rgb = RGB(
                 r = 24,
                 g = 25,
                 b = 38,
-                value = "rgb(24, 25, 38)"
             ),
             hsl = HSL(
                 h = 236,
                 s = 23,
                 l = 12,
-                value = "hsl(236, 23%, 12%)"
             )
         )
     )
@@ -1683,502 +1455,424 @@ fun getMochaColors(): CatppuccinTheme {
         rosewater = ColorData(
             name = "Rosewater",
             hex = HEX(
-                long = 0xfff5e0dc,
-                value = "#f5e0dc"
+                code = "#f5e0dc"
             ),
             rgb = RGB(
                 r = 245,
                 g = 224,
                 b = 220,
-                value = "rgb(245, 224, 220)"
             ),
             hsl = HSL(
                 h = 10,
                 s = 56,
                 l = 91,
-                value = "hsl(10, 56%, 91%)"
             )
         ),
         flamingo = ColorData(
             name = "Flamingo",
             hex = HEX(
-                long = 0xfff2cdcd,
-                value = "#f2cdcd"
+                code = "#f2cdcd"
             ),
             rgb = RGB(
                 r = 245,
                 g = 224,
                 b = 220,
-                value = "rgb(245, 224, 220)"
             ),
             hsl = HSL(
                 h = 10,
                 s = 56,
                 l = 91,
-                value = "hsl(10, 56%, 91%)"
             )
         ),
         pink = ColorData(
             name = "Pink",
             hex = HEX(
-                long = 0xfff5c2e7,
-                value = "#f5c2e7"
+                code = "#f5c2e7"
             ),
             rgb = RGB(
                 r = 245,
                 g = 194,
                 b = 231,
-                value = "rgb(245, 194, 231)"
             ),
             hsl = HSL(
                 h = 316,
                 s = 72,
                 l = 86,
-                value = "hsl(316, 72%, 86%)"
             )
         ),
         mauve = ColorData(
             name = "Mauve",
             hex = HEX(
-                long = 0xffcba6f7,
-                value = "#cba6f7"
+                code = "#cba6f7"
             ),
             rgb = RGB(
                 r = 203,
                 g = 166,
                 b = 247,
-                value = "rgb(203, 166, 247)"
             ),
             hsl = HSL(
                 h = 267,
                 s = 84,
                 l = 81,
-                value = "hsl(267, 84%, 81%)"
             )
         ),
         red = ColorData(
             name = "Red",
             hex = HEX(
-                long = 0xfff38ba8,
-                value = "#f38ba8"
+                code = "#f38ba8"
             ),
             rgb = RGB(
                 r = 203,
                 g = 166,
                 b = 247,
-                value = "rgb(203, 166, 247)"
             ),
             hsl = HSL(
                 h = 267,
                 s = 84,
                 l = 81,
-                value = "hsl(267, 84%, 81%)"
             )
         ),
         maroon = ColorData(
             name = "Maroon",
             hex = HEX(
-                long = 0xffeba0ac,
-                value = "#eba0ac"
+                code = "#eba0ac"
             ),
             rgb = RGB(
                 r = 235,
                 g = 160,
                 b = 172,
-                value = "rgb(235, 160, 172)"
             ),
             hsl = HSL(
                 h = 350,
                 s = 65,
                 l = 77,
-                value = "hsl(350, 65%, 77%)"
             )
         ),
         peach = ColorData(
             name = "Peach",
             hex = HEX(
-                long = 0xfffab387,
-                value = "#fab387"
+                code = "#fab387"
             ),
             rgb = RGB(
                 r = 250,
                 g = 179,
                 b = 135,
-                value = "rgb(250, 179, 135)"
             ),
             hsl = HSL(
                 h = 23,
                 s = 92,
                 l = 75,
-                value = "hsl(23, 92%, 75%)"
             )
         ),
         yellow = ColorData(
             name = "Yellow",
             hex = HEX(
-                long = 0xfff9e2af,
-                value = "#f9e2af"
+                code = "#f9e2af"
             ),
             rgb = RGB(
                 r = 249,
                 g = 226,
                 b = 175,
-                value = "rgb(249, 226, 175)"
             ),
             hsl = HSL(
                 h = 41,
                 s = 86,
                 l = 83,
-                value = "hsl(41, 86%, 83%)"
             )
         ),
         green = ColorData(
             name = "Green",
             hex = HEX(
-                long = 0xffa6e3a1,
-                value = "#a6e3a1"
+                code = "#a6e3a1"
             ),
             rgb = RGB(
                 r = 166,
                 g = 227,
                 b = 161,
-                value = "rgb(166, 227, 161)"
             ),
             hsl = HSL(
                 h = 115,
                 s = 54,
                 l = 76,
-                value = "hsl(115, 54%, 76%)"
             )
         ),
         teal = ColorData(
             name = "Teal",
             hex = HEX(
-                long = 0xff94e2d5,
-                value = "#94e2d5"
+                code = "#94e2d5"
             ),
             rgb = RGB(
                 r = 148,
                 g = 226,
                 b = 213,
-                value = "rgb(148, 226, 213)"
             ),
             hsl = HSL(
                 h = 170,
                 s = 57,
                 l = 73,
-                value = "hsl(170, 57%, 73%)"
             )
         ),
         sky = ColorData(
             name = "Sky",
             hex = HEX(
-                long = 0xff89dceb,
-                value = "#89dceb"
+                code = "#89dceb"
             ),
             rgb = RGB(
                 r = 137,
                 g = 220,
                 b = 235,
-                value = "rgb(137, 220, 235)"
             ),
             hsl = HSL(
                 h = 189,
                 s = 71,
                 l = 73,
-                value = "hsl(189, 71%, 73%)"
             )
         ),
         sapphire = ColorData(
             name = "Sapphire",
             hex = HEX(
-                long = 0xff74c7ec,
-                value = "#74c7ec"
+                code = "#74c7ec"
             ),
             rgb = RGB(
                 r = 116,
                 g = 199,
                 b = 236,
-                value = "rgb(116, 199, 236)"
             ),
             hsl = HSL(
                 h = 199,
                 s = 76,
                 l = 69,
-                value = "hsl(199, 76%, 69%)"
             )
         ),
         blue = ColorData(
             name = "Blue",
             hex = HEX(
-                long = 0xff89b4fa,
-                value = "#89b4fa"
+                code = "#89b4fa"
             ),
             rgb = RGB(
                 r = 137,
                 g = 180,
                 b = 250,
-                value = "rgb(137, 180, 250)"
             ),
             hsl = HSL(
                 h = 217,
                 s = 92,
                 l = 76,
-                value = "hsl(217, 92%, 76%)"
             )
         ),
         lavender = ColorData(
             name = "Lavender",
             hex = HEX(
-                long = 0xffb4befe,
-                value = "#b4befe"
+                code = "#b4befe"
             ),
             rgb = RGB(
                 r = 180,
                 g = 190,
                 b = 254,
-                value = "rgb(180, 190, 254)"
             ),
             hsl = HSL(
                 h = 232,
                 s = 97,
                 l = 85,
-                value = "hsl(232, 97%, 85%)"
             )
         ),
         text = ColorData(
             name = "Text",
             hex = HEX(
-                long = 0xffcdd6f4,
-                value = "#cdd6f4"
+                code = "#cdd6f4"
             ),
             rgb = RGB(
                 r = 205,
                 g = 214,
                 b = 244,
-                value = "rgb(205, 214, 244)"
             ),
             hsl = HSL(
                 h = 226,
                 s = 64,
                 l = 88,
-                value = "hsl(226, 64%, 88%)"
             )
         ),
         subtext1 = ColorData(
             name = "SubText1",
             hex = HEX(
-                long = 0xffbac2de,
-                value = "#bac2de"
+                code = "#bac2de"
             ),
             rgb = RGB(
                 r = 186,
                 g = 194,
                 b = 222,
-                value = "rgb(186, 194, 222)"
             ),
             hsl = HSL(
                 h = 227,
                 s = 35,
                 l = 80,
-                value = "hsl(227, 35%, 80%)"
             )
         ),
         subtext0 = ColorData(
             name = "SubText0",
             hex = HEX(
-                long = 0xffa6adc8,
-                value = "#a6adc8"
+                code = "#a6adc8"
             ),
             rgb = RGB(
                 r = 166,
                 g = 173,
                 b = 200,
-                value = "rgb(166, 173, 200)"
             ),
             hsl = HSL(
                 h = 228,
                 s = 24,
                 l = 72,
-                value = "hsl(228, 24%, 72%)"
             )
         ),
         overlay2 = ColorData(
             name = "Overlay2",
             hex = HEX(
-                long = 0xff9399b2,
-                value = "#9399b2"
+                code = "#9399b2"
             ),
             rgb = RGB(
                 r = 147,
                 g = 153,
                 b = 178,
-                value = "rgb(147, 153, 178)"
             ),
             hsl = HSL(
                 h = 228,
                 s = 17,
                 l = 64,
-                value = "hsl(228, 17%, 64%)"
             )
         ),
         overlay1 = ColorData(
             name = "Overlay1",
             hex = HEX(
-                long = 0xff7f849c,
-                value = "#7f849c"
+                code = "#7f849c"
             ),
             rgb = RGB(
                 r = 127,
                 g = 132,
                 b = 156,
-                value = "rgb(127, 132, 156)"
             ),
             hsl = HSL(
                 h = 230,
                 s = 13,
                 l = 55,
-                value = "hsl(230, 13%, 55%)"
             )
         ),
         overlay0 = ColorData(
             name = "Overlay0",
             hex = HEX(
-                long = 0xff6c7086,
-                value = "#6c7086"
+                code = "#6c7086"
             ),
             rgb = RGB(
                 r = 108,
                 g = 112,
                 b = 134,
-                value = "rgb(108, 112, 134)"
             ),
             hsl = HSL(
                 h = 231,
                 s = 11,
                 l = 47,
-                value = "hsl(231, 11%, 47%)"
             )
         ),
         surface2 = ColorData(
             name = "Surface2",
             hex = HEX(
-                long = 0xff585b70,
-                value = "#585b70"
+                code = "#585b70"
             ),
             rgb = RGB(
                 r = 88,
                 g = 91,
                 b = 112,
-                value = "rgb(88, 91, 112)"
             ),
             hsl = HSL(
                 h = 233,
                 s = 12,
                 l = 39,
-                value = "hsl(233, 12%, 39%)"
             )
         ),
         surface1 = ColorData(
             name = "Surface1",
             hex = HEX(
-                long = 0xff45475a,
-                value = "#45475a"
+                code = "#45475a"
             ),
             rgb = RGB(
                 r = 69,
                 g = 71,
                 b = 90,
-                value = "rgb(69, 71, 90)"
             ),
             hsl = HSL(
                 h = 234,
                 s = 13,
                 l = 31,
-                value = "hsl(234, 13%, 31%)"
             )
         ),
         surface0 = ColorData(
             name = "Surface0",
             hex = HEX(
-                long = 0xff313244,
-                value = "#313244"
+                code = "#313244"
             ),
             rgb = RGB(
                 r = 49,
                 g = 50,
                 b = 68,
-                value = "rgb(49, 50, 68)"
             ),
             hsl = HSL(
                 h = 237,
                 s = 16,
                 l = 23,
-                value = "hsl(237, 16%, 23%)"
             )
         ),
         base = ColorData(
             name = "Base",
             hex = HEX(
-                long = 0xff1e1e2e,
-                value = "#1e1e2e"
+                code = "#1e1e2e"
             ),
             rgb = RGB(
                 r = 30,
                 g = 30,
                 b = 46,
-                value = "rgb(30, 30, 46)"
             ),
             hsl = HSL(
                 h = 240,
                 s = 21,
                 l = 15,
-                value = "hsl(240, 21%, 15%)"
             )
         ),
         mantle = ColorData(
             name = "Mantle",
             hex = HEX(
-                long = 0xff181825,
-                value = "#181825"
+                code = "#181825"
             ),
             rgb = RGB(
                 r = 24,
                 g = 24,
                 b = 37,
-                value = "rgb(24, 24, 37)"
             ),
             hsl = HSL(
                 h = 240,
                 s = 21,
                 l = 12,
-                value = "hsl(240, 21%, 12%)"
             )
         ),
         crust = ColorData(
             name = "Crust",
             hex = HEX(
-                long = 0xff11111b,
-                value = "#11111b"
+                code = "#11111b"
             ),
             rgb = RGB(
                 r = 17,
                 g = 17,
                 b = 27,
-                value = "rgb(17, 17, 27)"
             ),
             hsl = HSL(
                 h = 240,
                 s = 23,
                 l = 9,
-                value = "hsl(240, 23%, 9%)"
             )
         )
     )
 }
 
-fun getColor(label: Label): ColorData{
-    return when(label){
+fun getColor(label: Label): ColorData {
+    return when (label) {
         Label.LATTE_ROSEWATER -> getLatteColors().rosewater
         Label.LATTE_FLAMINGO -> getLatteColors().flamingo
         Label.LATTE_PINK -> getLatteColors().pink
@@ -2286,8 +1980,8 @@ fun getColor(label: Label): ColorData{
     }
 }
 
-fun getHexColor(label: Label): HEX{
-    return when(label){
+fun getHexColor(label: Label): HEX {
+    return when (label) {
         Label.LATTE_ROSEWATER -> getLatteColors().rosewater.hex
         Label.LATTE_FLAMINGO -> getLatteColors().flamingo.hex
         Label.LATTE_PINK -> getLatteColors().pink.hex
@@ -2395,8 +2089,8 @@ fun getHexColor(label: Label): HEX{
     }
 }
 
-fun getRGBColor(label: Label): RGB{
-    return when(label){
+fun getRGBColor(label: Label): RGB {
+    return when (label) {
         Label.LATTE_ROSEWATER -> getLatteColors().rosewater.rgb
         Label.LATTE_FLAMINGO -> getLatteColors().flamingo.rgb
         Label.LATTE_PINK -> getLatteColors().pink.rgb
@@ -2504,8 +2198,8 @@ fun getRGBColor(label: Label): RGB{
     }
 }
 
-fun getHSLColor(label: Label): HSL{
-    return when(label){
+fun getHSLColor(label: Label): HSL {
+    return when (label) {
         Label.LATTE_ROSEWATER -> getLatteColors().rosewater.hsl
         Label.LATTE_FLAMINGO -> getLatteColors().flamingo.hsl
         Label.LATTE_PINK -> getLatteColors().pink.hsl
