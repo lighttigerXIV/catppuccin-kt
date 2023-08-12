@@ -37,10 +37,10 @@ dependencyResolutionManagement {
 On your app gradle add:
 ```gradle
 //If you use Groovy DSL
-implementation 'com.github.lighttigerxiv:catppuccin-kt:0.0.4'
+implementation 'com.github.lighttigerxiv:catppuccin-kt:1.0.0'
 
 //If you use Kotlin DSL
-implementation ("com.github.lighttigerxiv:catppuccin-kt:0.0.4")
+implementation ("com.github.lighttigerxiv:catppuccin-kt:1.0.0")
 ```
 
 ### How to use
